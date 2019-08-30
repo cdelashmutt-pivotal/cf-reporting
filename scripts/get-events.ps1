@@ -54,7 +54,7 @@ if($?)
 {
 
     Write-Host Getting events
-    $result = cf curl '/v2/events' | ConvertFrom-Json
+    $result = cf curl '/v2/events?results-per-page=100' | ConvertFrom-Json
     $data = $result.resources
 
     while( $result.next_url -ne $null ) {
