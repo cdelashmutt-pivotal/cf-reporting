@@ -190,4 +190,4 @@ $updateRanges | foreach {
     }
 }
 
-$cves
+$cves | Export-Csv -NoTypeInformation cves.csv -Append:$Append
