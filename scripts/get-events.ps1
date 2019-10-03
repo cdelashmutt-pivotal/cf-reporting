@@ -65,7 +65,7 @@ if($?)
 
     Write-Host Writing events to csv
     $data | select-object @{Name="platform"; Expression={$PlatformName}},
-        @{Name="metadata_guid"; Expression={$_.metadata.guid}}
+        @{Name="metadata_guid"; Expression={$_.metadata.guid}},
         @{Name="metadata_url"; Expression={$_.metadata.url}},
         @{Name="metadata_created_at"; Expression={$_.metadata.created_at}},
         @{Name="metadata_updated_at"; Expression={$_.metadata.updated_at}},
@@ -81,6 +81,6 @@ if($?)
         @{Name="entity_metadata_build_guid";Expression={$_.entity.metadata.build_guid}},
         @{Name="entity_metadata_package_guid";Expression={$_.entity.metadata.package_guid}},
         @{Name="entity_space_guid";Expression={$_.entity.space_guid}},
-        @{Name="entity_organization_guid";Expression={$_.entity.organization_guid}} |
-    Export-Csv -NoTypeInformation events.csv -Append:$Append
+        @{Name="entity_organization_guid";Expression={$_.entity.organization_guid}} | 
+        Export-Csv -NoTypeInformation events.csv -Append:$Append
 }
